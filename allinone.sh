@@ -1,10 +1,13 @@
 #!/bin/bash
-export HARBOR_URL="registry.local"
+export HARBOR_URL="registry.naren.local.com"
 export ADMIN_USER=admin
 export ADMIN_PASSWORD="Harbor12345"
 OUTDIR=$PWD/temp
 rm -rf $OUTDIR
+rm -rf $HARBOR_URL.csv
 mkdir -p $OUTDIR
+
+
 
 printAllRepos() {
     while IFS= read -r line; do
@@ -36,7 +39,7 @@ getMyProjectRepositories() {
         # echo response: $response
         # echo "********************"
         echo $response >>$OUTDIR/out.json
-        cat out.json | jq -r '.[].name' >>$repofile
+        cat $OUTDIR/out.json | jq -r '.[].name' >>$repofile
         page=$((page + 1))
     done
     if [ -e "$repofile" ] && [ -s "$repofile" ]; then
@@ -46,7 +49,7 @@ getMyProjectRepositories() {
 }
 
 getMyProjects() {
-    rm -rf projects.json
+    rm -rf $OUTDIR/projects.json
     page=1
     while :; do
         response=$(curl -k -s \
@@ -66,9 +69,8 @@ getMyProjects
 cat $OUTDIR/projects.json | jq -r '.[].name' >$OUTDIR/projects.txt
 projects=$(cat $OUTDIR/projects.txt)
 for project in $projects; do
-    echo $project
-    echo "============"
+    # echo $project
+    # echo "============"
     getMyProjectRepositories $project
 done
-echo "Done\n======================"
 cat $HARBOR_URL.csv

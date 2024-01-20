@@ -2,7 +2,7 @@
 
 file=$1
 
-export HARBOR_URL="registry.local"
+export HARBOR_URL="registry.naren.local.com"
 export ADMIN_USER=admin
 export ADMIN_PASSWORD="Harbor12345"
 OUTDIR=$PWD/temp
