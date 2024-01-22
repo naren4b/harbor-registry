@@ -6,6 +6,8 @@ git clone https://github.com/naren4b/harbor-registry.git
 cd harbor-registry
 bash setup.sh
 bash install.sh
+kubectl wait --for=condition=ready pod -n ingress-nginx -l app.kubernetes.io/component=controller
+kubectl wait --for=condition=ready pod -n registry -l app=harbor -l component=portal
 ```
 
 # Load an image
