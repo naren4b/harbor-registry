@@ -1,9 +1,9 @@
 # harbor-registry
-
+```
 mkdir -p /etc/docker/certs.d/registry.naren.local.com
 sudo mkdir -p /etc/docker/certs.d/registry.naren.local.com
 sudo cp ca.crt /etc/docker/certs.d/registry.naren.local.com/
-
+```
 
 
 ```
