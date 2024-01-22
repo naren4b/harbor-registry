@@ -40,10 +40,9 @@ if [ -e "$file" ] && [ -s "$file" ]; then
         bash $PWD/02_getProjectRepositories.sh $project
         bash $PWD/03_getRepositoryDetails.sh $project
         bash $PWD/04_getImageDetails.sh $project
-        echo "Done."
-        mv out "$(date +"%Y%m%d_%H%M%S")"
-        exit
     done
+    echo "Done."
+    # mv out "$(date +"%Y%m%d_%H%M%S")"
 else
 
     if [ ! -e "$file" ]; then

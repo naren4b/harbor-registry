@@ -1,7 +1,5 @@
 #!/bin/bash
-export HARBOR_URL="registry-1.ndac.dyn.nesc.nokia.net"
-export ADMIN_USER=TODO
-export ADMIN_PASSWORD="TODO"
+source config.sh
 
 page=1
 while :; do
