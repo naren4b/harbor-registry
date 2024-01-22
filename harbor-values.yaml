@@ -1,0 +1,7 @@
+expose:
+  ingress:
+    hosts:
+      core: registry.naren.local.com #TODO
+      notary: notary.naren.local.com #TODO
+externalURL: https://registry.naren.local.com # TODO
+
