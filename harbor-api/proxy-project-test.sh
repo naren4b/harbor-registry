@@ -1,0 +1,33 @@
+#!/bin/bash
+
+LOCAL_URL=registry.127.0.0.1.nip.io
+ADMIN_USER=admin  
+ADMIN_PASSWORD=Harbor12345
+
+REMOTE_URL=demo.goharbor.io
+REMOTE_REPO_ALIAS=demo
+REMOTE_USERNAME=admin
+REMOTE_PASSWORD=Harbor12345
+
+# create the project 
+IMAGE_PROJECT=demo
+IMAGE_NAME=alpine
+IMAGE_TAG=v1.0.0
+
+docker login -u ${REMOTE_USERNAME} -p ${REMOTE_PASSWORD} ${REMOTE_URL}
+
+
+cat<<EOF >Dockerfile
+FROM alpine:latest 
+EOF
+
+docker build -t $REMOTE_URL/$IMAGE_PROJECT/$IMAGE_NAME:$IMAGE_TAG .
+docker push $REMOTE_URL/$IMAGE_PROJECT/$IMAGE_NAME:$IMAGE_TAG
+docker pull $REMOTE_URL/$IMAGE_PROJECT/$IMAGE_NAME:$IMAGE_TAG
+
+# Pull from proxy projects 
+
+LOCAL_USERNAME=admin
+LOCAL_PASSWORD=Harbor12345
+docker login -u ${LOCAL_USERNAME} -p ${LOCAL_PASSWORD} ${LOCAL_URL}
+docker pull $LOCAL_URL/$REMOTE_REPO_ALIAS/$IMAGE_PROJECT/$IMAGE_NAME:$IMAGE_TAG
