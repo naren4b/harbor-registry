@@ -1,11 +1,11 @@
 cat<<EOF >my-project.json
 {
   "project_name": "naren",
-  "public": "false",
+  "public": false,
   "metadata": {
-    "public": false
-  }
- "registry_id": 0
+    "public": "false"
+  },
+ "registry_id": 1
 }
 EOF
 
