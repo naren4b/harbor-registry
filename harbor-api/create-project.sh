@@ -5,7 +5,7 @@ cat<<EOF >my-project.json
   "metadata": {
     "public": "false"
   },
- "registry_id": 1
+ "registry_id": 1 #If you need proxy project
 }
 EOF
 
