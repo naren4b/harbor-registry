@@ -4,3 +4,5 @@ expose:
       core: registry.127.0.0.1.nip.io #TODO
       notary: notary.127.0.0.1.nip.io #TODO
 externalURL: https://registry.127.0.0.1.nip.io # TODO
+trivy:
+  enabled: false
