@@ -1,5 +1,5 @@
 project=$1 #demo
-proxy_project_id=$2 #1
+# proxy_project_id=$2 #1
 
 cat<<EOF >$project.json
 {
