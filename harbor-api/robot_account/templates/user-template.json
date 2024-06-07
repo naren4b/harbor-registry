@@ -1,20 +1,19 @@
 {
-    "description": "{USERNAME} added by api",
-    "level": "system",
-    "disable": false,
-    "duration": 1,
-    "name": "{USERNAME}",
-    "permissions": [
-      {
-        "access": [
-          {
-            "action": "pull",
-            "resource": "repository"
-          }
-        ],
-        "kind": "project",
-        "namespace": "{PROJECTNAME}"
-      }
-    ]
-  }
-  
+  "description": "{USERNAME} {ACTION} by api",
+  "level": "system",
+  "disable": false,
+  "duration": 1,
+  "name": "{USERNAME}",
+  "permissions": [
+    {
+      "access": [
+        {
+          "action": "pull",
+          "resource": "repository"
+        }
+      ],
+      "kind": "project",
+      "namespace": "{PROJECTNAME}"
+    }
+  ]
+}
